@@ -87,50 +87,46 @@ clear.onclick = () => restart();
 backspace.onclick = () => removeLast();
 
 addBtn.onclick = () => {
-    currentOperation = 'add';
     triggerNewInput = true;
     if (firstNumber === null) {
         setFirstValue(displayValue*1);
+        currentOperation = 'add';
     } else {
-        displayValue = operate(firstNumber, displayValue*1, currentOperation);
-        firstNumber = displayValue;
-        display.textContent = displayValue;
+        firstNumber = operate(firstNumber, displayValue*1, currentOperation);
+        currentOperation = 'add';
     }    
 }
 
 subtractBtn.onclick = () => {
-    currentOperation = 'subtract';
     triggerNewInput = true;
     if (firstNumber === null) {
         setFirstValue(displayValue*1);
+        currentOperation = 'subtract';
     } else {
-        displayValue = operate(firstNumber, displayValue*1, currentOperation);
-        firstNumber = displayValue;
-        display.textContent = displayValue;
+        firstNumber = operate(firstNumber, displayValue*1, currentOperation);
+        currentOperation = 'subtract';
     }    
 }
 
 multiplyBtn.onclick = () => {
-    currentOperation = 'multiply';
     triggerNewInput = true;
     if (firstNumber === null) {
         setFirstValue(displayValue*1);
+        currentOperation = 'multiply';
     } else {
-        displayValue = operate(firstNumber, displayValue*1, currentOperation);
-        firstNumber = displayValue;
-        display.textContent = displayValue;
+        firstNumber = operate(firstNumber, displayValue*1, currentOperation);
+        currentOperation = 'multiply';
     }    
 }
 
 divideBtn.onclick = () => {
-    currentOperation = 'divide';
     triggerNewInput = true;
     if (firstNumber === null) {
         setFirstValue(displayValue*1);
+        currentOperation = 'divide';
     } else {
-        displayValue = operate(firstNumber, displayValue*1, currentOperation);
-        firstNumber = displayValue;
-        display.textContent = displayValue;
+        firstNumber = operate(firstNumber, displayValue*1, currentOperation);
+        currentOperation = 'divide';
     }    
 }
 
@@ -138,9 +134,9 @@ equalBtn.onclick = () => {
     if (currentOperation) {
         displayValue = operate(firstNumber, displayValue*1, currentOperation);
         currentOperation = '';
-        firstNumber = displayValue;
+        firstNumber = null;
         display.textContent = displayValue;
-        // triggerNewInput = true;
+        triggerNewInput = true;
     }
 }
 
