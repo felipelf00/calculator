@@ -12,7 +12,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b == 0) {
-        return 'error';
+        return 'fuck you';
     } else return a / b;
 }
 
@@ -26,8 +26,11 @@ function type(value) {
             return;
         }
     }
-    displayValue += value;
-    display.textContent = displayValue;
+    if (displayValue.length < 8) {
+        displayValue += value;
+    }
+    console.log(displayValue.length);
+    display.textContent = displayValue.slice(0, 8);
 }
 
 function clearDisplay() {
@@ -135,7 +138,7 @@ equalBtn.onclick = () => {
         displayValue = operate(firstNumber, displayValue*1, currentOperation);
         currentOperation = '';
         firstNumber = null;
-        display.textContent = displayValue;
+        display.textContent = displayValue.toString().slice(0, 8);
         triggerNewInput = true;
     }
 }
